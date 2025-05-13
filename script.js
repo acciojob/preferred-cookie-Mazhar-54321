@@ -2,15 +2,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
   const fontsize = document.getElementById("fontsize");
-  console.log(getCookie("fontsize"))
-	fontsize.value=getCookie("fontsize")??'16'
+  let savedFontSize =getCookie("fontsize")??'16'
+	fontsize.value=savedFontSize
     const fontcolor = document.getElementById("fontcolor");
-	fontcolor.value=getCookie("fontcolor")??"black"
-  document.documentElement.style.setProperty('--fontsize', `${fontsize}px`);
-document.documentElement.style.setProperty('--fontcolor', fontcolor);
+    let savedFontColor =getCookie("fontcolor")??"black"
+	fontcolor.value=savedFontColor
+  document.documentElement.style.setProperty('--fontsize', `${savedFontSize}px`);
+document.documentElement.style.setProperty('--fontcolor', savedFontColor);
 const body = document.getElementById("body");
-  body.style.fontSize = `${fontsize}px`;
-  body.style.color = fontcolor;
+  body.style.fontSize = `${savedFontSize}px`;
+  body.style.color = savedFontColor;
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // stop form from reloading the page
 
