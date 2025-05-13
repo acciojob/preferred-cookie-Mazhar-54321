@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	fontsize.value=getCookie("fontsize")??'16'
     const fontcolor = document.getElementById("fontcolor");
 	fontcolor.value=getCookie("fontcolor")??"black"
+  document.documentElement.style.setProperty('--fontsize', `${fontsize}px`);
+document.documentElement.style.setProperty('--fontcolor', fontcolor);
+
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // stop form from reloading the page
 
